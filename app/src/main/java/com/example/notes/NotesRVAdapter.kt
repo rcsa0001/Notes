@@ -38,6 +38,14 @@ class NotesRVAdapter(private val context: Context, private val listener: INotesR
     override fun getItemCount(): Int {
        return allNotes.size
     }
+
+//    update
+    fun updateList(newList: List<Note>){
+        allNotes.clear()
+    allNotes.addAll(newList)
+//  notifyed after  update
+    notifyDataSetChanged()
+    }
 }
 
 // for click handler create an interface
