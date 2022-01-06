@@ -2,6 +2,7 @@ package com.example.notes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,8 +36,20 @@ class MainActivity : AppCompatActivity(), INotesRVAdapter {
 
     }
 
-    override fun onItemClicked(note: Note) {
 
+    override fun onItemClicked(note: Note) {
+        viewModel.deleteNote(note)
+        Toast.makeText(this,"${note.text} DELETED", Toast.LENGTH_LONG).show()
+    }
+
+//    on submit
+    fun submitData(view: android.view.View) {
+        val noteText = input.text.toString()
+        if (noteText.isNotEmpty()){
+            viewModel.insertNode(Note(noteText))
+            Toast.makeText(this,"$noteText DELETED", Toast.LENGTH_LONG).show()
+
+        }
     }
 }
 

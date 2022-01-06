@@ -28,7 +28,15 @@ class NoteViewModel (application: Application) : AndroidViewModel(application) {
 //    delete functio call of the Repository using co coroutines
 //    this thing will work on the background thread of the coroutines scope
 //  Dispatchers specifiy the type of operation
-    fun deleteNode(note: Note) = viewModelScope.launch(Dispatchers.IO) {
+
+
+//   delete function
+    fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(note)
     }
+
+//    insert function
+    fun insertNode(note: Note) = viewModelScope.launch(Dispatchers.IO){
+        repository.insert(note)
+}
 }
