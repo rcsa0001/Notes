@@ -13,15 +13,16 @@ import kotlinx.coroutines.launch
 class NoteViewModel (application: Application) : AndroidViewModel(application) {
 
     //    LIve data (getting data from NoteDao
-    val allNotes: LiveData<List<Note>>
     val repository : NoteRepository
+    val allNotes: LiveData<List<Note>>
+
 
     init {
 //        getting the database
         val dao = NoteDatabase.getDatabase(application).getNoteDao()
          repository = NoteRepository(dao)
 //        Intilaization
-        allNotes = repository.allNotes
+         allNotes = repository.allNotes
     }
 
 //    instead of async coroutines is used
